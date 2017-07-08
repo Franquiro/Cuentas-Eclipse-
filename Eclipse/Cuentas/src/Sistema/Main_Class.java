@@ -1,0 +1,31 @@
+package Sistema;
+
+import java.util.Scanner;
+
+import Recursos.Cuenta;
+
+public class Main_Class {
+
+	public static void main(String[] args) {
+		Cuenta santander = new Cuenta();
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Iniciando actualización de cuentas:");
+		System.out.println("Ingrese monto original:");
+		float valor = teclado.nextFloat();
+		
+		while(valor!=0) {
+			santander.actualizarHistorico(valor);
+			
+			System.out.println("Ultimo Estado:");
+			System.out.println(santander.getMonto());
+			
+			System.out.println("Ingrese monto a deducir: ");
+			valor = teclado.nextFloat();
+		}
+		
+		System.out.println("Estado Final de la cuenta:" + santander.getMonto());
+		teclado.close();
+	}
+
+}
